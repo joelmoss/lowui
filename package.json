@@ -1,0 +1,24 @@
+{
+  "name": "lowui",
+  "version": "0.1.0",
+  "description": "Low Level React Components and Hooks",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "components",
+    "react"
+  ],
+  "author": "Joel Moss",
+  "homepage": "https://github.com/joelmoss/lowui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joelmoss/lowui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joelmoss/lowui/issues"
+  },
+  "license": "MIT"
+}
