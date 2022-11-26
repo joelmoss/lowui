@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  mount Proscenium::Railtie, at: '/proscenium' if Rails.env.development?
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Framed components
+  get '/components/*component' => 'components#show_framed', as: :component
+
+  # Unframed components
+  get '/_components/*component' => 'components#show_unframed', as: :_component
+
+  root 'components#index'
 end

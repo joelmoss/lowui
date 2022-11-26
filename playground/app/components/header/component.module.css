@@ -1,0 +1,18 @@
+header {
+  border-bottom: 1px solid var(--stone-3);
+  box-shadow: var(--shadow-2);
+  display: flex;
+}
+
+.logo {
+  padding: 0 10px 2px;
+  font-size: 1.25rem;
+
+  & span:first-child {
+    font-weight: 300;
+  }
+
+  & span:last-child {
+    font-weight: 800;
+  }
+}

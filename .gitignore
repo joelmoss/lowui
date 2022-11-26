@@ -23,3 +23,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /playground/config/master.key
+
+.env
+
+/node_modules
+/playground/node_modules

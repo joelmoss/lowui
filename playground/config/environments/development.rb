@@ -1,9 +1,16 @@
 require 'active_support/core_ext/integer/time'
 
+# If `PUMA_DEV_DOMAIN` env var is set, then we assume that puma-dev is used, and configure things
+# accordingly.
+puma_dev = ENV.key?('PUMA_DEV_DOMAIN') && ENV['PUMA_DEV_DOMAIN'] != ''
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.hosts << 'lowui.test'
+  if puma_dev
+    config.hosts << ENV['PUMA_DEV_DOMAIN']
+    config.force_ssl = true
+  end
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development

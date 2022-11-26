@@ -1,3 +1,14 @@
+PATH
+  remote: /Users/joelmoss/dev/proscenium
+  specs:
+    proscenium (0.6.0)
+      actioncable (>= 6.1.0, < 8.0)
+      activesupport (>= 6.1.0, < 8.0)
+      listen (~> 3.0)
+      nokogiri (~> 1.13)
+      oj (~> 3.13)
+      railties (>= 6.1.0, < 8.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -99,19 +110,12 @@ GEM
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
     oj (3.13.23)
-    phlex (0.4.0)
-      syntax_tree (~> 3.6)
+    phlex (1.0.0.rc1)
       zeitwerk (~> 2.6)
-    prettier_print (1.1.0)
-    proscenium (0.6.0-arm64-darwin)
-      actioncable (>= 6.1.0, < 8.0)
-      activesupport (>= 6.1.0, < 8.0)
-      listen (~> 3.0)
-      nokogiri (~> 1.13)
-      oj (~> 3.13)
-      phlex (~> 0.4.0)
-      railties (>= 6.1.0, < 8.0)
-      view_component (~> 2.74.1)
+    phlex-rails (0.3.1)
+      phlex (>= 1.0.0.rc1, < 2)
+      rails (>= 6.1, < 8)
+      zeitwerk (~> 2)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -148,16 +152,10 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    syntax_tree (3.6.3)
-      prettier_print
     thor (1.2.1)
     timeout (0.3.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    view_component (2.74.1)
-      activesupport (>= 5.0.0, < 8.0)
-      concurrent-ruby (~> 1.0)
-      method_source (~> 1.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -167,7 +165,9 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
-  proscenium
+  phlex (= 1.0.0.rc1)
+  phlex-rails
+  proscenium!
   puma (~> 5.0)
   rails (~> 7.0.4)
 
