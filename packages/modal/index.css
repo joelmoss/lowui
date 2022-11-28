@@ -1,0 +1,57 @@
+.base {
+  opacity: 0;
+  position: fixed;
+  z-index: 199;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.enter,
+.enterDone {
+  opacity: 0;
+  transition: opacity 400ms;
+
+  > span {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 100ms, transform 200ms;
+  }
+}
+
+.enterActive,
+.enterDone {
+  opacity: 1;
+
+  > span {
+    opacity: 0.8;
+    transform: translateX(0);
+  }
+}
+
+.exit {
+  transition: opacity 300ms;
+}
+
+.exitActive,
+.exitDone {
+  opacity: 0;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  > div {
+    background: var(--white) url('/images/ajax-loader.gif') no-repeat center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    text-indent: -9999px;
+    opacity: 0.8;
+  }
+}

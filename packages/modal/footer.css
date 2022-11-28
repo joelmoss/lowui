@@ -1,0 +1,21 @@
+.base {
+  border-top: 1px solid var(--gray2);
+  padding: 14px;
+  display: flex;
+  background-color: var(--gray1);
+}
+
+.primaryButton {
+  @mixin button-small;
+  flex: 1;
+
+  &:disabled {
+    @mixin button__loading;
+  }
+}
+
+.secondaryButton {
+  @mixin button-secondary;
+  @mixin button__small;
+  margin-left: 10px;
+}

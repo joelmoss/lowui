@@ -1,0 +1,77 @@
+.base {
+  color: var(--white);
+  background-color: var(--purple5);
+  padding: 0 8px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  height: 2.7em;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  left: 0;
+
+  @media (--gt-largephone) {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    color: var(--white);
+    flex: 1;
+
+    @media (--lte-largephone) {
+      text-align: center;
+    }
+
+    @media (--gt-largephone) {
+      padding-left: 4px;
+    }
+  }
+}
+
+.headerButton {
+  @mixin button-icon;
+  color: var(--white);
+
+  &:hover {
+    background-color: var(--purple4);
+    color: var(--white);
+  }
+
+  i {
+    --icon-size: 1.3em;
+  }
+}
+
+.closeButtonMobile {
+  composes: headerButton;
+
+  @media (--gt-largephone) {
+    display: none;
+  }
+}
+
+.closeButtonDesktop {
+  composes: headerButton;
+
+  @media (--lte-largephone) {
+    visibility: hidden;
+  }
+}
+
+.body {
+  padding: 2.7em 0 0;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  @media (--gt-largephone) {
+    padding: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}

@@ -4,27 +4,26 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+.DS_Store
+
 # Ignore bundler config.
-/playground/.bundle
+/.bundle
 
 # Ignore all logfiles and tempfiles.
-/playground/log/*
-/playground/tmp/*
-!/playground/log/.keep
-!/playground/tmp/.keep
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-/playground/tmp/pids/*
-!/playground/tmp/pids/
-!/playground/tmp/pids/.keep
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
 
-
-/playground/public/assets
+/public/assets
 
 # Ignore master key for decrypting credentials and more.
-/playground/config/master.key
+/config/master.key
 
 .env
-
-/node_modules
-/playground/node_modules
+node_modules

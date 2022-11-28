@@ -32,6 +32,7 @@ module Playground
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.autoload_paths << "#{root}/app"
+    config.proscenium.include_paths += ['packages', 'app/components']
 
     # Don't generate system test files.
     config.generators.system_tests = nil

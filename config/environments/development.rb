@@ -7,6 +7,8 @@ puma_dev = ENV.key?('PUMA_DEV_DOMAIN') && ENV['PUMA_DEV_DOMAIN'] != ''
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.proscenium.auto_reload_paths << 'packages'
+
   if puma_dev
     config.hosts << ENV['PUMA_DEV_DOMAIN']
     config.force_ssl = true
