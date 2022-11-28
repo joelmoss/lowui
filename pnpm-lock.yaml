@@ -1,0 +1,38 @@
+lockfileVersion: 5.4
+
+importers:
+
+  .:
+    specifiers: {}
+
+  packages/modal:
+    specifiers: {}
+
+  playground:
+    specifiers:
+      '@lowui/modal': workspace:modal@*
+      '@proscenium/component-manager': ^0.3.1
+      open-props: ^1.5.0
+      preact: ^10.11.3
+    dependencies:
+      '@lowui/modal': link:../packages/modal
+      '@proscenium/component-manager': 0.3.1
+      open-props: 1.5.0
+      preact: 10.11.3
+
+packages:
+
+  /@proscenium/component-manager/0.3.1:
+    resolution: {integrity: sha512-TOCflpMUWrSAMMhHelq/xGDbyRFPcGI0yMXknKh33Cwax+MaD4ktU0taz3SHgw23ASUfnK4KhNIixrwncX63/Q==}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
+    dev: false
+
+  /open-props/1.5.0:
+    resolution: {integrity: sha512-IxGBgqPqu8UckVi/EMtvK/QZ/1kRrFZUp3IhEsLrRnXOAmYG2nt480j6LwpBTB5sGRCsa6/K9FthMwKi0Duu0A==}
+    dev: false
+
+  /preact/10.11.3:
+    resolution: {integrity: sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==}
+    dev: false

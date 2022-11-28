@@ -110,7 +110,7 @@ GEM
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
     oj (3.13.23)
-    phlex (1.0.0.rc1)
+    phlex (1.0.0.rc2)
       zeitwerk (~> 2.6)
     phlex-rails (0.3.1)
       phlex (>= 1.0.0.rc1, < 2)
@@ -165,7 +165,7 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
-  phlex (= 1.0.0.rc1)
+  phlex (= 1.0.0.rc2)
   phlex-rails
   proscenium!
   puma (~> 5.0)

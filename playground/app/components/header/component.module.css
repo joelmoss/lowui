@@ -2,11 +2,18 @@ header {
   border-bottom: 1px solid var(--stone-3);
   box-shadow: var(--shadow-2);
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
   padding: 0 10px 2px;
   font-size: 1.25rem;
+
+  & a {
+    color: indianred;
+    text-decoration: none;
+  }
 
   & span:first-child {
     font-weight: 300;
@@ -14,5 +21,19 @@ header {
 
   & span:last-child {
     font-weight: 800;
+  }
+}
+
+.select {
+  font-size: 0.9rem;
+  padding-right: 10px;
+
+  & a {
+    font-size: 0.8rem;
+  }
+
+  & select {
+    margin-left: 10px;
+    color: var(--stone-8);
   }
 }

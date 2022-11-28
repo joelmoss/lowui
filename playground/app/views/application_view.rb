@@ -3,7 +3,6 @@
 module Views
   class ApplicationView < Proscenium::Phlex
     include Rails.application.routes.url_helpers
-    # include Phlex::Translation
     include Proscenium::Phlex::ResolveCssModules
 
     private

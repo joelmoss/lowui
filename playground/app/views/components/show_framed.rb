@@ -6,7 +6,7 @@ module Views
 
     def template
       render Views::Layouts::Application.new do
-        render Header::Component.new
+        render Header::Component.new(@component_path)
         main do
           iframe src: _component_path(@component_path), width: '100%', height: '100%'
         end

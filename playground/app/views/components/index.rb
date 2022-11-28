@@ -8,7 +8,7 @@ module Views
       render Views::Layouts::Application.new do
         render Header::Component.new
         main do
-          h2 { 'Select a component...' }
+          div(class: '@unselected') { 'No component currently selected 👀' }
         end
       end
     end
