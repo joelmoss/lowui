@@ -17,11 +17,11 @@ importers:
   packages/modal:
     specifiers:
       ibiza: ^1.4.0
-      prop-types: ^15.8.1
+      is-fn: ^3.0.0
       react-transition-group: ^4.4.5
     dependencies:
       ibiza: 1.4.0
-      prop-types: 15.8.1
+      is-fn: 3.0.0
       react-transition-group: 4.4.5
 
 packages:
@@ -62,6 +62,11 @@ packages:
     dependencies:
       fast-equals: 2.0.4
       micro-memoize: 4.0.11
+    dev: false
+
+  /is-fn/3.0.0:
+    resolution: {integrity: sha512-6VwZArytQi9pJzNyC1p4q4BtV2MB3pM8ae1vkeqr2LUSsv/44/0heNbLT7e0GUa1Tfz1oAoZD6eDXE89gqVc0w==}
+    engines: {node: '>=12'}
     dev: false
 
   /js-tokens/4.0.0:

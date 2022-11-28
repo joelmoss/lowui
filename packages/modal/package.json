@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "ibiza": "^1.4.0",
-    "prop-types": "^15.8.1",
+    "is-fn": "^3.0.0",
     "react-transition-group": "^4.4.5"
   }
 }

@@ -1,6 +1,4 @@
-import PropTypes from 'prop-types'
-
-import styles from './index.css'
+import styles from "./index.css";
 
 const Content = ({ isLoading, children }) => {
   return (
@@ -17,12 +15,12 @@ const Content = ({ isLoading, children }) => {
       )}
       {children}
     </div>
-  )
-}
+  );
+};
 
-Content.propTypes = {
-  isLoading: PropTypes.bool,
-  children: PropTypes.any.isRequired
-}
+// Content.propTypes = {
+//   isLoading: PropTypes.bool,
+//   children: PropTypes.any.isRequired
+// }
 
-export default Content
+export default Content;
