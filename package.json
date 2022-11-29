@@ -29,12 +29,13 @@
     "semi": false
   },
   "devDependencies": {
-    "@lowui/modal": "workspace:modal@*",
-    "@lowui/button": "workspace:button@*",
+    "@lowui/button": "workspace:@lowui/button@*",
+    "@lowui/modal": "workspace:@lowui/modal@*",
     "@proscenium/component-manager": "^0.3.1",
+    "microbundle": "^0.15.1",
     "open-props": "^1.5.0",
     "preact": "^10.11.3",
     "prettier": "^2.8.0",
-    "typescript": "^4.9.3"
+    "rimraf": "^3.0.2"
   }
 }

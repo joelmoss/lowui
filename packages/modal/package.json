@@ -1,14 +1,38 @@
 {
-  "name": "modal",
+  "name": "@lowui/modal",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "source": "src/index.jsx",
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && microbundle --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --css-modules='-cm_[md5:hash:hex:8]' -f modern --no-pkg-main -o dist/index.js",
+    "dev": "rimraf dist && microbundle watch --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --css-modules='-cm_[path][name]__[local]__[md5:hash:hex:6]' -f modern --no-pkg-main -o dist/index.js --compress false"
   },
   "keywords": [],
-  "author": "",
+  "author": "Joel Moss",
+  "homepage": "https://github.com/joelmoss/lowui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joelmoss/lowui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joelmoss/lowui/issues"
+  },
   "license": "MIT",
+  "sideEffects": [
+    "*.css"
+  ],
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "dependencies": {
     "ibiza": "^1.4.0",
     "is-fn": "^3.0.0",

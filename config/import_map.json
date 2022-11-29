@@ -7,7 +7,8 @@
     "react/jsx-runtime": "preact/jsx-runtime",
     "react/jsx-dev-runtime": "preact/jsx-dev-runtime",
 
-    "@lowui/": "/packages/"
+    "@lowui/button": "/packages/button/src",
+    "@lowui/modal": "/packages/modal/src"
   },
   "scopes": {}
 }
