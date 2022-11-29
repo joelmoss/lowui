@@ -1,0 +1,27 @@
+.base {
+  @mixin button;
+}
+
+.small {
+  @mixin button-small;
+}
+
+.mini {
+  @mixin button-mini;
+}
+
+.tiny {
+  @mixin button-tiny;
+}
+
+.icon {
+  @mixin button-icon;
+}
+
+.link {
+  @mixin button-link;
+}
+
+._loading {
+  @mixin button__loading;
+}
