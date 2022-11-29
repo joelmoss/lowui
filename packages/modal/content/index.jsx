@@ -1,5 +1,10 @@
-import styles from "./index.css";
+import styles from "./index.module.css"
 
+/**
+ * @param {Object} props
+ * @param {any} props.children
+ * @param {boolean} [props.isLoading]
+ */
 const Content = ({ isLoading, children }) => {
   return (
     <div className={styles.base}>
@@ -15,12 +20,7 @@ const Content = ({ isLoading, children }) => {
       )}
       {children}
     </div>
-  );
-};
+  )
+}
 
-// Content.propTypes = {
-//   isLoading: PropTypes.bool,
-//   children: PropTypes.any.isRequired
-// }
-
-export default Content;
+export default Content

@@ -1,14 +1,14 @@
-import Modal, { useModal } from "@lowui/modal";
+import Modal, { useModal } from "@lowui/modal"
 
 const ModalPreview = () => {
-  const { toggleModal } = useModal(1);
+  const { toggleModal } = useModal("modalPreview")
 
   return (
     <div>
       <button onClick={() => toggleModal(true)}>Open Modal</button>
-      <Modal id={1}>Hey there, I&apos;m a Modal!</Modal>
+      <Modal id="modalPreview">Hey there, I&apos;m a Modal!</Modal>
     </div>
-  );
-};
+  )
+}
 
-export default ModalPreview;
+export default ModalPreview
