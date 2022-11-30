@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom"
-import { lazy, Suspense, useEffect } from "react"
+import { useRef, lazy, Suspense, useEffect } from "react"
 import { CSSTransition } from "react-transition-group"
 
 const Container = lazy(() => import("./container"))
@@ -11,9 +11,6 @@ import styles from "./index.module.css"
  * @param {Object} props
  * @param {string | number} props.id
  * @param {any} props.children
- * @param {string | object} [props.title] The title to be shown in the header.
- * @param {any} [props.header]
- * @param {function | object} [props.footer]
  * @param {boolean} [props.canClose=true] If false, the close buttons in the header will not be
  *  shown. (default: true)
  * @param {boolean} [props.isOpen=false] Open the modal if true.
@@ -21,8 +18,9 @@ import styles from "./index.module.css"
  *  modal content. (default: false)
  * @param {function} [props.onExit] Callback triggered after modal exits, and CSS transition has ended.
  */
-const Modal = ({ canClose = true, id, children, onClose, onExit, isOpen, ...props }) => {
+const Modal = ({ canClose = true, id, children, onExit, isOpen, ...props }) => {
   const { toggleModal, isModalOpen } = useModal(id)
+  const nodeRef = useRef(null)
   const { base, loading, ...transitions } = styles
 
   // Make sure changes to the `isOpen` prop toggle the modal.
@@ -32,24 +30,25 @@ const Modal = ({ canClose = true, id, children, onClose, onExit, isOpen, ...prop
     <ModalContext.Provider value={{ id }}>
       {createPortal(
         <CSSTransition
-          classNames={{
-            ...transitions,
-          }}
+          nodeRef={nodeRef}
+          classNames={transitions}
           in={isModalOpen}
+          timeout={300}
           mountOnEnter
           unmountOnExit
           onExited={() => {
-            onClose?.() // DEPRECATED
             onExit?.()
           }}
-          timeout={1000}
         >
-          <div className={base}>
+          <div className={base} ref={nodeRef}>
             <Suspense
               fallback={
-                <span className={loading}>
-                  <div></div>
-                </span>
+                <div className={loading}>
+                  <div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
               }
             >
               <Container canClose={canClose} {...props}>

@@ -3,7 +3,6 @@
 
 body {
   font-family: var(--font-sans);
-  overflow: hidden;
   width: 100vw;
   height: 100vh;
 }

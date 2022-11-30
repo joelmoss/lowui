@@ -1,86 +1,46 @@
-.outer {
-  box-align: center;
-  align-items: center;
-  display: flex;
-  box-orient: vertical;
-  flex-direction: column;
-  bottom: 0;
-  left: 0;
-  padding: 10px;
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  @media (--lte-largephone) {
-    width: 100%;
-  }
-}
-
-.inner {
-  background-color: var(--white);
-  transform: scale(0.9);
+.dialog {
+  background-color: var(--lowui-modal-backgroundColor);
   opacity: 0;
-  box-align: stretch;
-  align-items: stretch;
-  display: flex;
-  box-orient: vertical;
-  flex-direction: column;
-  position: relative;
   overflow: hidden;
-  flex-shrink: 1;
-  max-height: 100%;
+  margin: auto;
+  padding: 0;
+  position: fixed;
+  inset: 0;
+  box-shadow: var(--lowui-modal-dialogShadow);
 
   @media (--lte-largephone) {
-    overflow-y: scroll;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    margin-block-start: 20px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
   }
 
   @media (--gt-largephone) {
-    box-shadow: var(--floating-shadow);
-    max-width: 600px;
-    min-width: 320px;
-    border-radius: 5px;
+    max-inline-size: min(90vw, 60ch);
+    max-block-size: min(80vh, 100%);
+    max-block-size: min(80dvb, 100%);
+    border-radius: 6px;
   }
 }
 
-.innerPad {
-  box-flex: 1;
-  flex-grow: 1;
-  display: block;
-  height: 2em;
-
-  @media (--gte-desktop) {
-    height: 3em;
-  }
-}
-
-.enter,
-.enterDone {
+.enter {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 300ms, transform 300ms;
 }
-
 .enterActive,
 .enterDone {
   opacity: 1;
-  transform: translateX(0);
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
 }
 
 .exit {
   opacity: 1;
-  transform: translateX(0);
-  transition: opacity 300ms, transform 200ms;
+  transform: translateY(0);
 }
-
-.exitActive,
-.exitDone {
+.exitActive {
   opacity: 0;
-  transform: scale(0.9);
+  transform: translateY(-10%);
+  transition: opacity 300ms, transform 200ms;
 }
 
 .body {

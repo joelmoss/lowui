@@ -1,0 +1,19 @@
+@custom-media --gt-phone (min-width: 321px); /* width > --phone */
+
+@custom-media --gte-tablet (min-width: 768px); /* width >= --tablet */
+@custom-media --gt-tablet (min-width: 769px); /* width > --tablet */
+@custom-media --lte-tablet (max-width: 768px); /* width <= --tablet */
+@custom-media --lt-tablet (max-width: 767px); /* width < --tablet */
+
+@custom-media --gte-largephone (min-width: 425px); /* width >= --largephone */
+@custom-media --gt-largephone (min-width: 426px); /* width > --largephone */
+@custom-media --lte-largephone (max-width: 425px); /* width <= --largephone */
+@custom-media --lt-largephone (max-width: 424px); /* width < --largephone */
+
+@custom-media --gte-desktop (min-width: 1024px); /* width >= --desktop */
+@custom-media --gt-desktop (min-width: 1025px); /* width > --desktop */
+@custom-media --lte-desktop (max-width: 1024px); /* width <= --desktop */
+@custom-media --lt-desktop (max-width: 1023px); /* width < --desktop */
+
+@custom-media --gte-largedesktop (min-width: 1440px); /* width >= --largedesktop */
+@custom-media --gt-largedesktop (min-width: 1441px); /* width > --largedesktop */

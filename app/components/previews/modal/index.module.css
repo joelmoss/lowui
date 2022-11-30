@@ -1,0 +1,15 @@
+:root {
+  /* --lowui-modal-backgroundColor: red; */
+}
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 20px;
+  flex-direction: column;
+
+  & p {
+    margin: 10px 50px;
+  }
+}

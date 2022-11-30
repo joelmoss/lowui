@@ -4,7 +4,10 @@
   "description": "",
   "type": "module",
   "source": "src/index.jsx",
-  "main": "./dist/index.js",
+  "exports": {
+    "./index.css": "./dist/index.css",
+    ".": "./dist/index.js"
+  },
   "files": [
     "dist",
     "src"
@@ -37,5 +40,9 @@
     "ibiza": "^1.4.0",
     "is-fn": "^3.0.0",
     "react-transition-group": "^4.4.5"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

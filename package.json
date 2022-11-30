@@ -29,6 +29,7 @@
     "semi": false
   },
   "devDependencies": {
+    "@developwithstyle/postcss-custom-media": "^8.0.2",
     "@lowui/button": "workspace:@lowui/button@*",
     "@lowui/modal": "workspace:@lowui/modal@*",
     "@proscenium/component-manager": "^0.3.1",

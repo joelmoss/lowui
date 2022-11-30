@@ -4,6 +4,7 @@ importers:
 
   .:
     specifiers:
+      '@developwithstyle/postcss-custom-media': ^8.0.2
       '@lowui/button': workspace:@lowui/button@*
       '@lowui/modal': workspace:@lowui/modal@*
       '@proscenium/component-manager': ^0.3.1
@@ -13,6 +14,7 @@ importers:
       prettier: ^2.8.0
       rimraf: ^3.0.2
     devDependencies:
+      '@developwithstyle/postcss-custom-media': 8.0.2
       '@lowui/button': link:packages/button
       '@lowui/modal': link:packages/modal
       '@proscenium/component-manager': 0.3.1
@@ -29,11 +31,16 @@ importers:
     specifiers:
       ibiza: ^1.4.0
       is-fn: ^3.0.0
+      react: ^18.2.0
+      react-dom: ^18.2.0
       react-transition-group: ^4.4.5
     dependencies:
-      ibiza: 1.4.0
+      ibiza: 1.4.0_react@18.2.0
       is-fn: 3.0.0
-      react-transition-group: 4.4.5
+      react-transition-group: 4.4.5_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
 
 packages:
 
@@ -1305,6 +1312,13 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
+  /@developwithstyle/postcss-custom-media/8.0.2:
+    resolution: {integrity: sha512-zbHyuy90srbLPHe2QQV1xyq6qSMq4rOjfHtmjqeHmuytc8Ht1eYnvEFqM4hTUg2pEnbcFnfHhjvekzXM1we8Gg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      postcss: ^8.1.0
+    dev: true
+
   /@jridgewell/gen-mapping/0.1.1:
     resolution: {integrity: sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w==}
     engines: {node: '>=6.0.0'}
@@ -2265,13 +2279,14 @@ packages:
       function-bind: 1.1.1
     dev: true
 
-  /ibiza/1.4.0:
+  /ibiza/1.4.0_react@18.2.0:
     resolution: {integrity: sha512-crTM2i3ZBRL4hY9t4M7Ngr8BjQnz9Jo0H/BliQTCl8vdBzMdWa5O5D0aG5nuYtiSCtUBRhGIetc6wsCJ0dwQ5w==}
     peerDependencies:
       react: '>=16'
     dependencies:
       fast-equals: 2.0.4
       micro-memoize: 4.0.11
+      react: 18.2.0
     dev: false
 
   /icss-replace-symbols/1.1.0:
@@ -2547,7 +2562,6 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
-    dev: false
 
   /magic-string/0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
@@ -3245,11 +3259,20 @@ packages:
       safe-buffer: 5.2.1
     dev: true
 
+  /react-dom/18.2.0_react@18.2.0:
+    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      loose-envify: 1.4.0
+      react: 18.2.0
+      scheduler: 0.23.0
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
 
-  /react-transition-group/4.4.5:
+  /react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
     peerDependencies:
       react: '>=16.6.0'
@@ -3259,7 +3282,15 @@ packages:
       dom-helpers: 5.2.1
       loose-envify: 1.4.0
       prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
+
+  /react/18.2.0:
+    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
 
   /regenerate-unicode-properties/10.1.0:
     resolution: {integrity: sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ==}
@@ -3455,6 +3486,11 @@ packages:
       get-intrinsic: 1.1.3
       is-regex: 1.1.4
     dev: true
+
+  /scheduler/0.23.0:
+    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
+    dependencies:
+      loose-envify: 1.4.0
 
   /semver/6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
