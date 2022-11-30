@@ -1,33 +1,26 @@
+import { lazy, Suspense, useCallback, useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
-import { useRef, lazy, Suspense, useEffect } from "react"
 import { CSSTransition } from "react-transition-group"
+import PropTypes from "prop-types"
 
-const Container = lazy(() => import("./container"))
 import { ModalContext, useModal } from "./hooks"
 
 import styles from "./index.module.css"
 
-/**
- * @param {Object} props
- * @param {string | number} props.id
- * @param {any} props.children
- * @param {boolean} [props.canClose=true] If false, the close buttons in the header will not be
- *  shown. (default: true)
- * @param {boolean} [props.isOpen=false] Open the modal if true.
- * @param {boolean} [props.isLoading] If true, will display a loading indicator overlay over the
- *  modal content. (default: false)
- * @param {function} [props.onExit] Callback triggered after modal exits, and CSS transition has ended.
- */
-const Modal = ({ canClose = true, id, children, onExit, isOpen, ...props }) => {
+const Container = lazy(() => import("./container"))
+
+const Modal = ({ id, canClose = true, children, onExit, isOpen }) => {
   const { toggleModal, isModalOpen } = useModal(id)
   const nodeRef = useRef(null)
   const { base, loading, ...transitions } = styles
+
+  const onExited = useCallback(() => onExit?.(), [onExit])
 
   // Make sure changes to the `isOpen` prop toggle the modal.
   useEffect(() => toggleModal(isOpen), [isOpen]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <ModalContext.Provider value={{ id }}>
+    <ModalContext.Provider value={id}>
       {createPortal(
         <CSSTransition
           nodeRef={nodeRef}
@@ -36,24 +29,20 @@ const Modal = ({ canClose = true, id, children, onExit, isOpen, ...props }) => {
           timeout={300}
           mountOnEnter
           unmountOnExit
-          onExited={() => {
-            onExit?.()
-          }}
+          onExited={onExited}
         >
           <div className={base} ref={nodeRef}>
             <Suspense
               fallback={
                 <div className={loading}>
                   <div>
-                    <div></div>
-                    <div></div>
+                    <div />
+                    <div />
                   </div>
                 </div>
               }
             >
-              <Container canClose={canClose} {...props}>
-                {children}
-              </Container>
+              <Container canClose={canClose}>{children}</Container>
             </Suspense>
           </div>
         </CSSTransition>,
@@ -61,6 +50,27 @@ const Modal = ({ canClose = true, id, children, onExit, isOpen, ...props }) => {
       )}
     </ModalContext.Provider>
   )
+}
+
+Modal.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+
+  children: PropTypes.node.isRequired,
+
+  // If false, the modal can be closed. (default: true)
+  canClose: PropTypes.bool,
+
+  // Set to true to open the modal.
+  isOpen: PropTypes.bool,
+
+  // Callback triggered after modal exits, and CSS transition has ended.
+  onExit: PropTypes.func,
+}
+
+Modal.defaultProps = {
+  canClose: true,
+  isOpen: false,
+  onExit: undefined,
 }
 
 export { useModal }

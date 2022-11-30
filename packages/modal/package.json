@@ -37,8 +37,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "ibiza": "^1.4.0",
-    "is-fn": "^3.0.0",
+    "ibiza": "^2.0.0-alpha.12",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {

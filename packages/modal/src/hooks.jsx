@@ -2,14 +2,14 @@ import { createContext, useContext } from "react"
 
 import useModel from "./model"
 
-export const ModalContext = createContext({ id: undefined })
+export const ModalContext = createContext(undefined)
 
 /**
  * @param {string | number} idFromArg
  * @returns {string | number}
  */
 export const useModalId = (idFromArg) => {
-  const { id: idFromContext } = useContext(ModalContext)
+  const idFromContext = useContext(ModalContext)
   return idFromArg || idFromContext
 }
 

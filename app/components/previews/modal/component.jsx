@@ -1,4 +1,5 @@
 import Modal, { useModal } from "@lowui/modal"
+
 import styles from "./index.module.css"
 
 const ModalPreview = () => {
