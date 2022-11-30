@@ -1,6 +1,6 @@
-import { createModel } from 'ibiza'
+import { createModel } from "ibiza"
 
-export default createModel('modals', () => ({
+export default createModel("modals", () => ({
   instances: {},
 
   toggle(_, id, isOpen) {

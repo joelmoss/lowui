@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from "@testing-library/react"
 
-import { useModal } from './hooks'
-import Modal from '.'
+import { useModal } from "./hooks"
+import Modal from "."
 
-describe('useModal hook', () => {
-  test('requires ID', () => {
-    jest.spyOn(console, 'error')
+describe("useModal hook", () => {
+  test("requires ID", () => {
+    jest.spyOn(console, "error")
     console.error.mockImplementation(() => {})
 
     const App = () => {
@@ -14,13 +14,13 @@ describe('useModal hook', () => {
       return null
     }
 
-    expect(() => render(<App />)).toThrow('useModal() requires a unique instance ID')
+    expect(() => render(<App />)).toThrow("useModal() requires a unique instance ID")
     expect(console.error).toHaveBeenCalledTimes(3)
 
     console.error.mockRestore()
   })
 
-  test('auto ID detection within', async () => {
+  test("auto ID detection within", async () => {
     const Inner1 = () => {
       const { id } = useModal()
 
@@ -60,42 +60,42 @@ describe('useModal hook', () => {
 
     render(<App />)
 
-    expect(await screen.findByText('Modal1 ID is 1')).toBeInTheDocument()
-    expect(await screen.findByText('Modal2 ID is 2')).toBeInTheDocument()
+    expect(await screen.findByText("Modal1 ID is 1")).toBeInTheDocument()
+    expect(await screen.findByText("Modal2 ID is 2")).toBeInTheDocument()
   })
 
-  test('toggling', () => {
+  test("toggling", async () => {
     const App = () => {
-      const { toggleModal, isModalOpen } = useModal('toggling')
+      const { toggleModal, isModalOpen } = useModal("toggling")
 
       return (
-        <button onClick={() => toggleModal(!isModalOpen)}>
-          {isModalOpen ? 'Close' : 'Open'} Modal
+        <button type="button" onClick={() => toggleModal(!isModalOpen)}>
+          {isModalOpen ? "Close" : "Open"} Modal
         </button>
       )
     }
 
-    render(<App />)
-    const button = screen.getByRole('button')
+    const { user } = setup(<App />)
+    const button = screen.getByRole("button")
 
-    expect(button).toHaveTextContent('Open Modal')
+    expect(screen.getByText("Open Modal")).toBeInTheDocument()
 
-    fireEvent.click(button)
+    await user.click(button)
 
-    expect(button).toHaveTextContent('Close Modal')
+    expect(screen.getByText("Close Modal")).toBeInTheDocument()
 
-    fireEvent.click(button)
+    await user.click(button)
 
-    expect(button).toHaveTextContent('Open Modal')
+    expect(screen.getByText("Open Modal")).toBeInTheDocument()
   })
 
-  test('multiple useModal(); same modal', () => {
+  test("multiple useModal(); same modal", async () => {
     const ModalOne = () => {
       const { toggleModal, isModalOpen } = useModal(3)
 
       return (
-        <button data-testid="openButton" onClick={() => toggleModal(true)}>
-          Open Modal from {isModalOpen ? 'open' : 'closed'}
+        <button type="button" data-testid="openButton" onClick={() => toggleModal(true)}>
+          Open Modal from {isModalOpen ? "open" : "closed"}
         </button>
       )
     }
@@ -104,8 +104,8 @@ describe('useModal hook', () => {
       const { toggleModal, isModalOpen } = useModal(3)
 
       return (
-        <button data-testid="closeButton" onClick={() => toggleModal(false)}>
-          Close Modal from {isModalOpen ? 'open' : 'closed'}
+        <button type="button" data-testid="closeButton" onClick={() => toggleModal(false)}>
+          Close Modal from {isModalOpen ? "open" : "closed"}
         </button>
       )
     }
@@ -119,22 +119,22 @@ describe('useModal hook', () => {
       )
     }
 
-    render(<App />)
+    const { user } = setup(<App />)
 
-    const openButton = screen.getByTestId('openButton')
-    const closeButton = screen.getByTestId('closeButton')
+    const openButton = screen.getByTestId("openButton")
+    const closeButton = screen.getByTestId("closeButton")
 
-    expect(openButton).toHaveTextContent('Open Modal from closed')
-    expect(closeButton).toHaveTextContent('Close Modal from closed')
+    expect(openButton).toHaveTextContent("Open Modal from closed")
+    expect(closeButton).toHaveTextContent("Close Modal from closed")
 
-    fireEvent.click(openButton)
+    await user.click(openButton)
 
-    expect(openButton).toHaveTextContent('Open Modal from open')
-    expect(closeButton).toHaveTextContent('Close Modal from open')
+    expect(openButton).toHaveTextContent("Open Modal from open")
+    expect(closeButton).toHaveTextContent("Close Modal from open")
 
-    fireEvent.click(closeButton)
+    await user.click(closeButton)
 
-    expect(openButton).toHaveTextContent('Open Modal from closed')
-    expect(closeButton).toHaveTextContent('Close Modal from closed')
+    expect(openButton).toHaveTextContent("Open Modal from closed")
+    expect(closeButton).toHaveTextContent("Close Modal from closed")
   })
 })

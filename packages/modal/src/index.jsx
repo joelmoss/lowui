@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useRef } from "react"
+import { lazy, Suspense, useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 import { CSSTransition } from "react-transition-group"
 import PropTypes from "prop-types"
@@ -14,8 +14,6 @@ const Modal = ({ id, canClose = true, children, onExit, isOpen }) => {
   const nodeRef = useRef(null)
   const { base, loading, ...transitions } = styles
 
-  const onExited = useCallback(() => onExit?.(), [onExit])
-
   // Make sure changes to the `isOpen` prop toggle the modal.
   useEffect(() => toggleModal(isOpen), [isOpen]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -29,7 +27,7 @@ const Modal = ({ id, canClose = true, children, onExit, isOpen }) => {
           timeout={300}
           mountOnEnter
           unmountOnExit
-          onExited={onExited}
+          onExit={onExit}
         >
           <div className={base} ref={nodeRef}>
             <Suspense
@@ -64,13 +62,13 @@ Modal.propTypes = {
   isOpen: PropTypes.bool,
 
   // Callback triggered after modal exits, and CSS transition has ended.
-  onExit: PropTypes.func,
+  onExit: PropTypes.func
 }
 
 Modal.defaultProps = {
   canClose: true,
   isOpen: false,
-  onExit: undefined,
+  onExit: undefined
 }
 
 export { useModal }

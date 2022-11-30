@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`canClose prop 1`] = `
+<body
+  class=""
+>
+  <div />
+  <div
+    class="base"
+  >
+    <div
+      class="dialog"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div>
+        withinTheModal
+      </div>
+    </div>
+  </div>
+</body>
+`;
