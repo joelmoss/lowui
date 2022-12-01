@@ -1,24 +1,9 @@
-# README
+# _lowUI
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A collection of primitive React components, that are designed to be the backbone of your component based UI. **lowUI** is not intended to be used on it's own. It expects you to build your own components on top of it's low level primitives, and to BYOS (Bring Your Own Styles).
 
-Things you may want to cover:
+## Components
 
-* Ruby version
+### Modal
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A modal dialog component for displaying blocking and non-blocking dialogs.
