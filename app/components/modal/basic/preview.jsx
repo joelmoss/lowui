@@ -1,6 +1,7 @@
 import Modal, { useModal } from "@lowui/modal"
 
-import styles from "./index.module.css"
+import "@lowui/modal/index.css"
+import styles from "./preview.module.css"
 
 const ModalPreview = () => {
   const { toggleModal } = useModal("modalPreview")

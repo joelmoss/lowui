@@ -18,7 +18,7 @@ require 'action_view/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Playground
+module LowUI
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
@@ -31,8 +31,18 @@ module Playground
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    config.autoload_paths << "#{root}/app"
-    config.proscenium.include_paths += ['packages', 'app/components']
+    # autoloaders.main.push_dir(root.join('app', 'components', 'stage'), namespace: Components::Stage)
+    # ActiveSupport::Dependencies.autoload_paths << "#{root}/app"
+
+    # paths.add 'app/components', eager_load: true
+    # config.autoload_paths << "#{root}/app/components"
+
+    config.eager_load_paths.delete("#{root}/app/components")
+    config.eager_load_paths.unshift("#{root}/app")
+
+    config.proscenium.include_paths += ['app/components', 'packages']
+
+    config.add_autoload_paths_to_load_path = false
 
     # Don't generate system test files.
     config.generators.system_tests = nil

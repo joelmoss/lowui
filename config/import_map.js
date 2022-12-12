@@ -10,7 +10,7 @@
       "react/jsx-dev-runtime": `https://ga.jspm.io/npm:react@${reactVersion}/${devSuffix}jsx-dev-runtime.js`,
       "react/jsx-runtime": `https://ga.jspm.io/npm:react@${reactVersion}/${devSuffix}jsx-runtime.js`,
 
-      "prop-types": `https://ga.jspm.io/npm:prop-types@15.8.1/${devSuffix}index.js`,
+      "prop-types": `https://ga.jspm.io/npm:prop-types@15.8.1/${devSuffix}index.js`
 
       // react: "preact/compat",
       // "react-dom/test-utils": "preact/test-utils",
@@ -19,7 +19,7 @@
       // "react/jsx-runtime": "preact/jsx-runtime",
       // "react/jsx-dev-runtime": "preact/jsx-dev-runtime",
 
-      "@lowui/modal": "/packages/modal/src"
+      // "@lowui/modal": "/packages/modal/src"
     },
     scopes: {
       "https://ga.jspm.io/": {
