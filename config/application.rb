@@ -31,16 +31,11 @@ module LowUI
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    # autoloaders.main.push_dir(root.join('app', 'components', 'stage'), namespace: Components::Stage)
-    # ActiveSupport::Dependencies.autoload_paths << "#{root}/app"
-
-    # paths.add 'app/components', eager_load: true
-    # config.autoload_paths << "#{root}/app/components"
-
     config.eager_load_paths.delete("#{root}/app/components")
     config.eager_load_paths.unshift("#{root}/app")
 
     config.proscenium.include_paths += ['app/components', 'packages']
+    config.proscenium.auto_reload_paths << 'packages'
 
     config.add_autoload_paths_to_load_path = false
 

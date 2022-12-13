@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef } from "react"
+import { lazy, Suspense, useCallback, useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 import { CSSTransition } from "react-transition-group"
 import PropTypes from "prop-types"
@@ -9,10 +9,24 @@ import styles from "./index.module.css"
 
 const Container = lazy(() => import("./container"))
 
-const Modal = ({ id, canClose = true, children, onExit, isOpen }) => {
+const Modal = ({ id, canClose, isDismissible, children, onExit, isOpen }) => {
   const { toggleModal, isModalOpen } = useModal(id)
   const nodeRef = useRef(null)
   const { base, loading, ...transitions } = styles
+
+  // Allow a click on the overlay to close the modal.
+  const onOutsideClick = useCallback(() => {
+    isModalOpen && event.target === nodeRef.current && toggleModal(false)
+  }, [isModalOpen, toggleModal])
+
+  // Allow a click on the overlay to close the sheet.
+  useEffect(() => {
+    const onEscape = (ev) => ev.key === "Escape" && toggleModal(false)
+
+    isDismissible && isModalOpen && document.addEventListener("keydown", onEscape)
+
+    return () => isDismissible && document.removeEventListener("keydown", onEscape)
+  }, [isDismissible, isModalOpen, toggleModal])
 
   // Make sure changes to the `isOpen` prop toggle the modal.
   useEffect(() => toggleModal(isOpen), [isOpen]) // eslint-disable-line react-hooks/exhaustive-deps
@@ -29,7 +43,7 @@ const Modal = ({ id, canClose = true, children, onExit, isOpen }) => {
           unmountOnExit
           onExit={onExit}
         >
-          <div className={base} ref={nodeRef}>
+          <div className={base} ref={nodeRef} onClick={isDismissible ? onOutsideClick : null}>
             <Suspense
               fallback={
                 <div className={loading}>
@@ -61,12 +75,16 @@ Modal.propTypes = {
   // Set to true to open the modal.
   isOpen: PropTypes.bool,
 
+  // If true, can be dismissed (closed) by cliking oustide the modal, or by hitting escape.
+  isDismissible: PropTypes.bool,
+
   // Callback triggered after modal exits, and CSS transition has ended.
   onExit: PropTypes.func
 }
 
 Modal.defaultProps = {
   canClose: true,
+  isDismissible: true,
   isOpen: false,
   onExit: undefined
 }

@@ -5,9 +5,8 @@ require 'active_support/core_ext/integer/time'
 puma_dev = ENV.key?('PUMA_DEV_DOMAIN') && ENV['PUMA_DEV_DOMAIN'] != ''
 
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
-
-  config.proscenium.auto_reload_paths << 'packages'
+  # keep dev logs small
+  config.log_file_size = 209_715_200
 
   if puma_dev
     config.hosts << ENV['PUMA_DEV_DOMAIN']

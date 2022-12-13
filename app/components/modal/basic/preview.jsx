@@ -1,3 +1,4 @@
+import { useCallback } from "react"
 import Modal, { useModal } from "@lowui/modal"
 
 import "@lowui/modal/index.css"
@@ -5,10 +6,15 @@ import styles from "./preview.module.css"
 
 const ModalPreview = () => {
   const { toggleModal } = useModal("modalPreview")
+  const onClick = useCallback(() => toggleModal(true), [toggleModal])
 
   return (
     <div className={styles.root}>
-      <button onClick={() => toggleModal(true)}>Open Modal</button>
+      <button type="button" onClick={onClick}>
+        Open Modal
+      </button>
+
+      <Modal id="modalPreview">Hey there, I&apos;m a Modal!</Modal>
 
       <br />
       <p>
@@ -61,8 +67,6 @@ const ModalPreview = () => {
         adipisicing elit. Quod provident vitae cumque nulla ut, praesentium consequatur dolores nisi
         facere maxime nesciunt corrupti quam natus, non unde quo eius vel molestias!
       </p>
-
-      <Modal id="modalPreview">Hey there, I&apos;m a Modal!</Modal>
     </div>
   )
 }
