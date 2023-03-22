@@ -1,7 +1,6 @@
 import { useCallback } from "react"
 import Modal, { useModal } from "@lowui/modal"
 
-import "@lowui/modal/index.css"
 import styles from "./basic.module.css"
 
 const ModalPreview = () => {

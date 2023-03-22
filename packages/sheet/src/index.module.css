@@ -1,0 +1,51 @@
+:root {
+  --lowui-sheet-bgColor: #f7f7f7;
+  --lowui-sheet-header-bgColor: white;
+  --lowui-sheet-header-borderColor: #ebebeb;
+  --lowui-sheet-header-titleColor: #48334e;
+  --lowui-sheet-header-subTitleColor: #6e6362;
+}
+
+.container {
+  opacity: 0;
+  position: fixed;
+  z-index: 199;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 200ms;
+}
+
+.body {
+  padding: 20px;
+  max-width: 800px;
+
+  @media (--gt-largephone) {
+    padding: 30px;
+  }
+}
+
+.window {
+  overflow: hidden;
+}
+
+.loading {
+  @mixin loader;
+}
+
+.disabled,
+.disabledLoading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 1;
+  cursor: not-allowed;
+}
+
+.disabledLoading {
+  cursor: progress;
+}

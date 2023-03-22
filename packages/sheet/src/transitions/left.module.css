@@ -1,0 +1,43 @@
+.base {
+  @mixin sheetBase;
+  transform: translateX(-100%);
+  max-width: 95%;
+  margin-top: 0;
+  left: 0;
+
+  @media (--gt-tablet) {
+    max-width: 90%;
+  }
+
+  @media (--gt-desktop) {
+    max-width: 75%;
+  }
+}
+
+.enter,
+.enterDone {
+  opacity: 0;
+}
+
+.enterActive,
+.enterDone {
+  opacity: 1;
+
+  > section {
+    transform: translateX(0);
+  }
+}
+
+.exit {
+  opacity: 1;
+  transition: opacity 400ms;
+
+  > section {
+    transform: translateX(-100%);
+  }
+}
+
+.exitActive,
+.exitDone {
+  opacity: 0;
+}

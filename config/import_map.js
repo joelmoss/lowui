@@ -11,10 +11,22 @@
       "react/jsx-runtime": `https://ga.jspm.io/npm:react@${reactVersion}/${devSuffix}jsx-runtime.js`,
       "react-is": `https://ga.jspm.io/npm:react-is@18.2.0/${devSuffix}index.js`,
 
-      // "@lowui/modal": "/packages/modal/src"
+      // Aliased to the source code, avoiding a build.
+      "@lowui/modal": "/packages/modal/src",
+      "@lowui/modal/": "/packages/modal/src/",
+      "@lowui/sheet": "/packages/sheet/src",
+      "@lowui/sheet/": "/packages/sheet/src/",
 
-      // "prop-types": "https://cdn.jsdelivr.net/gh/joelmoss/prop-types@esm/index.js"
-      "prop-types": "https://raw.githack.com/joelmoss/prop-types/esm/index.js"
+      // Ensure we use our own Object.assign polyfill which simply always returns the browser's
+      // built-in implementation.
+      // "object-assign": "/lib/polyfills/object_assign",
+      // "object.assign": "/lib/polyfills/object_assign",
+
+      // ESM only packages
+      "prop-types":
+        "https://rawcdn.githack.com/joelmoss/prop-types/bb5feb34343360573de764b0128673d5c32c512e/index.js",
+      "prop-types-exact":
+        "https://rawcdn.githack.com/joelmoss/prop-types-exact/2326b01b24421db8ca0c7e2e21d8fc81f717d7bb/src/index.js"
     },
     scopes: {
       "https://ga.jspm.io/": {

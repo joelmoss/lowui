@@ -1,0 +1,53 @@
+.base {
+  @mixin sheetBase;
+  transform: translate(0, 100%);
+  right: 0;
+
+  @media (--gt-tablet) {
+    max-width: 90%;
+    margin-top: 0;
+    transform: translate(100%, 0px);
+  }
+
+  @media (--gt-desktop) {
+    max-width: 75%;
+  }
+}
+
+.enter,
+.enterDone {
+  opacity: 0;
+}
+
+.enterActive,
+.enterDone {
+  opacity: 1;
+
+  > section {
+    transform: translate(0, 0);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    @media (--gt-tablet) {
+      border-radius: 0;
+    }
+  }
+}
+
+.exit {
+  opacity: 1;
+  transition: opacity 400ms;
+
+  > section {
+    transform: translate(0, 100%);
+
+    @media (--gt-tablet) {
+      transform: translate(100%, 0);
+    }
+  }
+}
+
+.exitActive,
+.exitDone {
+  opacity: 0;
+}
