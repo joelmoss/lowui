@@ -1,0 +1,10 @@
+.unselected {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--stone-8);
+}

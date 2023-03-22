@@ -1,0 +1,9 @@
+.componentManagedByProscenium {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  display: flex;
+}

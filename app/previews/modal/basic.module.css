@@ -1,9 +1,5 @@
 /* @import "@lowui/modal/index.css"; */
 
-:root {
-  /* --lowui-modal-backgroundColor: red; */
-}
-
 .root {
   display: flex;
   justify-content: center;

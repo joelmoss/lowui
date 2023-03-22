@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  mount Lookbook::Engine, at: '/'
+  get '/previews/_/*path' => 'previews#unframed', as: :unframed_preview
+  get '/previews/*path' => 'previews#framed', as: :preview
+
+  root to: 'previews#index'
 end

@@ -31,17 +31,7 @@ module LowUI
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    config.lookbook.project_name = 'LowUI Lookbook'
-    config.lookbook.component_paths = ['app/components']
-    config.lookbook.preview_paths = ['app/components']
-    config.lookbook.preview_layout = 'component_preview'
-
-    # config.eager_load_paths.delete("#{root}/app/components")
-    # config.eager_load_paths.unshift("#{root}/app")
-
-    config.proscenium.include_paths += ['app/components', 'packages']
-
-    # config.add_autoload_paths_to_load_path = false
+    config.proscenium.include_paths += ['app/components', 'app/previews', 'packages']
 
     # Don't generate system test files.
     config.generators.system_tests = nil

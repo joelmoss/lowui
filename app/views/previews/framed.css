@@ -1,0 +1,8 @@
+html {
+  overflow: hidden;
+
+  & iframe {
+    padding-top: 33px;
+    border: none;
+  }
+}
