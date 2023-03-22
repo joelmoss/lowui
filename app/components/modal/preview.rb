@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-class Components::Modal::Preview < Proscenium::Stage::Preview
-  def basic
-    Component.new
+module Components
+  class Modal::Preview < Lookbook::Preview
+    def default
+      render Modal::Default::Component.new
+    end
   end
 end
