@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { useCallback } from "react"
-import Sheet from "@lowui/sheet"
-import Body from "@lowui/sheet/body"
-import Header from "@lowui/sheet/header"
-import { useSheet } from "@lowui/sheet/hooks"
+import Sheet, { SheetBody, SheetHeader, useSheet } from "@lowui/sheet"
 
 const Basic = () => {
   const { toggleSheet } = useSheet(1)
@@ -16,8 +13,8 @@ const Basic = () => {
         Open Sheet
       </button>
       <Sheet id={1} isOpen>
-        <Header title="Hey there, I'm a Sheet!" />
-        <Body>And I am the body of the sheet.</Body>
+        <SheetHeader title="Hey there, I'm a Sheet!" />
+        <SheetBody>And I am the body of the sheet.</SheetBody>
       </Sheet>
     </>
   )

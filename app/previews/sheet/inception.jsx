@@ -1,9 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
 
-import Sheet from "@lowui/sheet"
-import Body from "@lowui/sheet/body"
-import Header from "@lowui/sheet/header"
-import { useSheet } from "@lowui/sheet/hooks"
+import Sheet, { SheetBody, SheetHeader, useSheet } from "@lowui/sheet"
 
 const InceptionSheet = () => {
   const { toggleSheet } = useSheet(1)
@@ -15,16 +12,16 @@ const InceptionSheet = () => {
         Open Sheet
       </button>
       <Sheet id={1}>
-        <Header title="A Sheet" />
-        <Body>
+        <SheetHeader title="A Sheet" />
+        <SheetBody>
           <button type="button" onClick={() => toggleSecondSheet(true)}>
             Click here
           </button>{" "}
           to open another Sheet
-        </Body>
+        </SheetBody>
       </Sheet>
       <Sheet id={2}>
-        <Header title="Sheetception!! 😱" />
+        <SheetHeader title="Sheetception!! 😱" />
       </Sheet>
     </div>
   )

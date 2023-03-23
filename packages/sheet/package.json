@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "description": "",
   "type": "module",
-  "source": "src/index.jsx",
+  "source": "index.js",
   "exports": {
-    ".": "./dist/sheet.js",
-    "./index.css": "./dist/index.css",
-    "./*": "./dist/*.js"
+    ".": {
+      "development": "./index.js",
+      "default": "./dist/index.js"
+    }
   },
   "scripts": {
     "clean": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist && microbundle src/{index,body,header}.jsx src/hooks.js --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --css-modules='-cm_[md5:hash:hex:8]' -f modern --compress false",
-    "dev": "rimraf dist && microbundle watch src/{index,body,header}.jsx src/hooks.js --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --css-modules='-cm_[path][name]__[local]__[md5:hash:hex:6]' -f modern --compress false"
+    "build": "rimraf dist && microbundle --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --css-modules='-cm_[md5:hash:hex:8]' -f modern --compress false --no-pkg-main -o dist/index.js",
+    "dev": "rimraf dist && microbundle watch --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --css-modules='-cm_[path][name]__[local]__[md5:hash:hex:6]' -f modern --compress false --no-pkg-main -o dist/index.js"
   },
   "keywords": [],
   "author": "Joel Moss",

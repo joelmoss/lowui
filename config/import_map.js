@@ -12,10 +12,8 @@
       "react-is": `https://ga.jspm.io/npm:react-is@18.2.0/${devSuffix}index.js`,
 
       // Aliased to the source code, avoiding a build.
-      "@lowui/modal": "/packages/modal/src",
-      "@lowui/modal/": "/packages/modal/src/",
-      "@lowui/sheet": "/packages/sheet/src",
-      "@lowui/sheet/": "/packages/sheet/src/",
+      "@lowui/modal": "/packages/modal",
+      "@lowui/sheet": "/packages/sheet",
 
       // Ensure we use our own Object.assign polyfill which simply always returns the browser's
       // built-in implementation.

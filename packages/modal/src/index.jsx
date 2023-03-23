@@ -89,5 +89,4 @@ Modal.defaultProps = {
   onExit: undefined
 }
 
-export { useModal }
 export default Modal
