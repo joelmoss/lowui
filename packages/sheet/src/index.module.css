@@ -34,6 +34,7 @@
 .loading {
   @mixin loader;
 }
+@mixin loaderKeyframes;
 
 .disabled,
 .disabledLoading {
@@ -128,6 +129,5 @@
 }
 
 .headerLoading {
-  @mixin loader;
-  @mixin loader__sm;
+  @mixin loaderSmall;
 }
