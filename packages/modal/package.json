@@ -38,6 +38,7 @@
   "dependencies": {
     "ibiza": "^2.0.0-alpha.12",
     "prop-types": "^15.8.1",
+    "prop-types-exact": "^1.2.0",
     "react-transition-group": "^4.4.5"
   }
 }

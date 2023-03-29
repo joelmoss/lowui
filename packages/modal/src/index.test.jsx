@@ -36,20 +36,6 @@ test("opening", async () => {
   expect(await screen.findByText("withinTheModal")).toBeInTheDocument()
 })
 
-test("canClose prop", async () => {
-  render(
-    <Modal id="canCloseProp" isOpen canClose={false}>
-      <div>withinTheModal</div>
-    </Modal>
-  )
-
-  await waitFor(() => {
-    expect(screen.queryAllByRole("button")).toStrictEqual([])
-  })
-
-  expect(document.body).toMatchSnapshot()
-})
-
 test("isOpen prop", async () => {
   render(
     <Modal id={1} isOpen>

@@ -7,3 +7,5 @@ A collection of primitive React components, that are designed to be the backbone
 ### Modal
 
 A modal dialog component for displaying blocking and non-blocking dialogs.
+
+### Sheet
