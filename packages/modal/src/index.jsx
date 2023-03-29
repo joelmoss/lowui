@@ -13,11 +13,12 @@ const Container = lazy(() => import("./container"))
 const Modal = ({ id, isDismissible, children, onExit, isOpen }) => {
   const { toggleModal, isModalOpen } = useModal(id)
   const nodeRef = useRef(null)
-  const { base, loading, ...transitions } = styles
+  const containerRef = useRef(null)
+  const { base, container, loading, ...transitions } = styles
 
   // Allow a click on the overlay to close the modal.
   const onOutsideClick = useCallback(() => {
-    isModalOpen && event.target === nodeRef.current && toggleModal(false)
+    isModalOpen && event.target === containerRef.current && toggleModal(false)
   }, [isModalOpen, toggleModal])
 
   // Allow a click on the overlay to close the sheet.
@@ -55,7 +56,9 @@ const Modal = ({ id, isDismissible, children, onExit, isOpen }) => {
                 </div>
               }
             >
-              <Container>{children}</Container>
+              <div ref={containerRef} className={container}>
+                <Container>{children}</Container>
+              </div>
             </Suspense>
           </div>
         </CSSTransition>,

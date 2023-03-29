@@ -1,35 +1,71 @@
 .dialog {
   background-color: var(--lowui-modal-backgroundColor);
+  transform: scale(0.9);
   opacity: 0;
-  overflow: hidden;
-  margin: auto;
-  padding: 0;
-  position: fixed;
-  inset: 0;
-  box-shadow: var(--lowui-modal-dialogShadow);
+  box-align: stretch;
+  align-items: stretch;
+  display: flex;
+  box-orient: vertical;
+  flex-direction: column;
+  position: relative;
+  overflow: auto;
+  flex-shrink: 1;
+  max-height: 100%;
+  min-height: 150px;
 
   @media (--lte-largephone) {
-    margin-block-start: 20px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   @media (--gt-largephone) {
-    max-inline-size: min(90vw, 60ch);
-    max-block-size: min(80vh, 100%);
-    max-block-size: min(80dvb, 100%);
-    border-radius: 6px;
+    box-shadow: var(--lowui-modal-dialogShadow);
+    max-width: 600px;
+    min-width: 320px;
+    border-radius: 5px;
   }
+}
+
+.verticalPad {
+  box-flex: 1;
+  flex-grow: 1;
+  display: block;
+  height: 2em;
+
+  @media (--gte-desktop) {
+    height: 3em;
+  }
+
+  @media (--lte-largephone) {
+    display: none;
+  }
+}
+
+.body {
+  overflow: hidden;
 }
 
 .enter {
   opacity: 0;
-  transform: scale(0.9);
+  transform: translateY(100%);
+
+  @media (--gt-largephone) {
+    transform: scale(0.9);
+  }
 }
 .enterActive,
 .enterDone {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0);
+
+  @media (--gt-largephone) {
+    transform: scale(1);
+  }
+
   transition: opacity 300ms, transform 300ms;
 }
 
@@ -39,10 +75,10 @@
 }
 .exitActive {
   opacity: 0;
-  transform: translateY(-10%);
+  transform: translateY(10%);
   transition: opacity 300ms, transform 200ms;
-}
 
-.body {
-  overflow: hidden;
+  @media (--gt-largephone) {
+    transform: translateY(-10%);
+  }
 }

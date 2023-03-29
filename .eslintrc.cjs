@@ -39,6 +39,13 @@ module.exports = {
       globals: {
         setup: "readonly"
       }
+    },
+    {
+      files: ["app/previews/**"],
+      rules: {
+        "react/jsx-no-bind": "off",
+        "react/display-name": [2, { ignoreTranspilerName: false }]
+      }
     }
   ],
   rules: {

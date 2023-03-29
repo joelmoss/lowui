@@ -6,7 +6,7 @@ import { useModal } from "../hooks"
 
 import styles from "./index.module.css"
 
-const { body: bodyStyle, dialog, ...transitions } = styles
+const { body: bodyStyle, dialog, verticalPad, ...transitions } = styles
 const toggleBodyClass = () => document.body.classList.toggle(bodyStyle)
 
 const Container = ({ children }) => {
@@ -21,18 +21,24 @@ const Container = ({ children }) => {
   useEffect(() => setVisibility(true), [])
 
   return (
-    <CSSTransition
-      nodeRef={nodeRef}
-      classNames={transitions}
-      in={isVisible}
-      timeout={300}
-      onEnter={toggleBodyClass}
-      onExit={toggleBodyClass}
-    >
-      <div ref={nodeRef} className={dialog} tabIndex="-1" role="dialog">
-        {children}
-      </div>
-    </CSSTransition>
+    <>
+      <div className={verticalPad} />
+
+      <CSSTransition
+        nodeRef={nodeRef}
+        classNames={transitions}
+        in={isVisible}
+        timeout={300}
+        onEnter={toggleBodyClass}
+        onExit={toggleBodyClass}
+      >
+        <div ref={nodeRef} className={dialog} tabIndex="-1" role="dialog">
+          {children}
+        </div>
+      </CSSTransition>
+
+      <div className={verticalPad} />
+    </>
   )
 }
 
