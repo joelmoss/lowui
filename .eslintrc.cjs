@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
@@ -63,6 +65,7 @@ module.exports = {
     "import/no-duplicates": "error",
 
     "react/function-component-definition": [2, { namedComponents: "arrow-function" }],
+    "react/display-name": [1, { ignoreTranspilerName: true }],
     "react/hook-use-state": 0,
     "react/jsx-sort-props": 0,
     "react/jsx-max-depth": 0,

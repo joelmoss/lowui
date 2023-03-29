@@ -34,6 +34,7 @@ const Header = ({ title, isLoading, children }) => {
   )
 }
 
+Header.displayName = "LowUI.Sheet.Header"
 Header.propTypes = exact({
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   isLoading: PropTypes.bool,

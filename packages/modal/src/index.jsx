@@ -89,6 +89,7 @@ const defaultProps = {
   onExit: undefined
 }
 
+Modal.displayName = "LowUI.Modal"
 Modal.propTypes = exact(propTypes)
 Modal.defaultProps = defaultProps
 

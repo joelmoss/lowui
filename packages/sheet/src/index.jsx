@@ -116,4 +116,6 @@ const Sheet = ({
   )
 }
 
+Sheet.displayName = "LowUI.Sheet"
+
 export default Sheet
