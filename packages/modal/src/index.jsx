@@ -14,7 +14,6 @@ const Modal = ({ id, isDismissible, children, onExit, isOpen }) => {
   const { toggleModal, isModalOpen } = useModal(id)
   const nodeRef = useRef(null)
   const containerRef = useRef(null)
-  const { base, container, loading, ...transitions } = styles
 
   // Allow a click on the overlay to close the modal.
   const onOutsideClick = useCallback(() => {
@@ -38,17 +37,27 @@ const Modal = ({ id, isDismissible, children, onExit, isOpen }) => {
       {createPortal(
         <CSSTransition
           nodeRef={nodeRef}
-          classNames={transitions}
+          classNames={{
+            enter: styles.enter,
+            enterActive: styles.enterActive,
+            enterDone: styles.enterDone,
+            exit: styles.exit,
+            exitActive: styles.exitActive
+          }}
           in={isModalOpen}
           timeout={300}
           mountOnEnter
           unmountOnExit
           onExit={onExit}
         >
-          <div className={base} ref={nodeRef} onClick={isDismissible ? onOutsideClick : null}>
+          <div
+            className={styles.base}
+            ref={nodeRef}
+            onClick={isDismissible ? onOutsideClick : null}
+          >
             <Suspense
               fallback={
-                <div className={loading}>
+                <div className={styles.loading}>
                   <div>
                     <div />
                     <div />
@@ -56,7 +65,7 @@ const Modal = ({ id, isDismissible, children, onExit, isOpen }) => {
                 </div>
               }
             >
-              <div ref={containerRef} className={container}>
+              <div ref={containerRef} className={styles.container}>
                 <Container>{children}</Container>
               </div>
             </Suspense>

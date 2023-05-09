@@ -12,13 +12,7 @@ import bottomTransitions from "./transitions/bottom.module.css"
 import leftTransitions from "./transitions/left.module.css"
 import rightTransitions from "./transitions/right.module.css"
 
-const {
-  disabled: disabledStyle,
-  disabledLoading: disabledLoadingStyle,
-  container: containerStyle,
-  loading: loadingStyle,
-  window: windowStyle
-} = styles
+const transitions = ["base", "enter", "enterActive", "enterDone", "exit", "exitActive", "exitDone"]
 
 /**
  * @param {object} props
@@ -47,21 +41,31 @@ const Sheet = ({
   const containerRef = useRef()
   const { toggleSheet, isSheetOpen } = useSheet(id)
 
-  const { base: baseStyle, ...transitions } = useMemo(() => {
-    switch (openFrom) {
-      case "auto": {
-        return autoTransitions
+  const { base: baseStyle, ...transitionStyles } = useMemo(() => {
+    const obj = {}
+
+    const tstyles = (() => {
+      switch (openFrom) {
+        case "auto": {
+          return autoTransitions
+        }
+        case "bottom": {
+          return bottomTransitions
+        }
+        case "right": {
+          return rightTransitions
+        }
+        case "left": {
+          return leftTransitions
+        }
       }
-      case "bottom": {
-        return bottomTransitions
-      }
-      case "right": {
-        return rightTransitions
-      }
-      case "left": {
-        return leftTransitions
-      }
+    })()
+
+    for (const tstate of transitions) {
+      obj[tstate] = tstyles[tstate]
     }
+
+    return obj
   }, [openFrom])
 
   // Make sure changes to the `isOpen` prop toggle the sheet.
@@ -83,21 +87,21 @@ const Sheet = ({
           in={isSheetOpen}
           mountOnEnter
           unmountOnExit
-          onEnter={() => document.body.classList.toggle(windowStyle)}
-          onExit={() => document.body.classList.toggle(windowStyle)}
+          onEnter={() => document.body.classList.toggle(styles.window)}
+          onExit={() => document.body.classList.toggle(styles.window)}
           onExited={() => {
             onExit?.()
           }}
-          classNames={{ ...transitions }}
+          classNames={{ ...transitionStyles }}
           timeout={500}
         >
-          <div className={containerStyle} ref={containerRef}>
-            {isLoading ? <div className={disabledLoadingStyle} /> : null}
-            {isDisabled ? <div className={disabledStyle} /> : null}
+          <div className={styles.container} ref={containerRef}>
+            {isLoading ? <div className={styles.disabledLoading} /> : null}
+            {isDisabled ? <div className={styles.disabled} /> : null}
             <section className={baseStyle}>
               <Suspense
                 fallback={
-                  <div className={loadingStyle}>
+                  <div className={styles.loading}>
                     <div>
                       <div />
                       <div />

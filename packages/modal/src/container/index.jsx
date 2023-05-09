@@ -6,8 +6,7 @@ import { useModal } from "../hooks"
 
 import styles from "./index.module.css"
 
-const { body: bodyStyle, dialog, verticalPad, ...transitions } = styles
-const toggleBodyClass = () => document.body.classList.toggle(bodyStyle)
+const toggleBodyClass = () => document.body.classList.toggle(styles.body)
 
 const Container = ({ children }) => {
   const { isModalOpen } = useModal()
@@ -22,22 +21,28 @@ const Container = ({ children }) => {
 
   return (
     <>
-      <div className={verticalPad} />
+      <div className={styles.verticalPad} />
 
       <CSSTransition
         nodeRef={nodeRef}
-        classNames={transitions}
+        classNames={{
+          enter: styles.enter,
+          enterActive: styles.enterActive,
+          enterDone: styles.enterDone,
+          exit: styles.exit,
+          exitActive: styles.exitActive
+        }}
         in={isVisible}
         timeout={300}
         onEnter={toggleBodyClass}
         onExit={toggleBodyClass}
       >
-        <div ref={nodeRef} className={dialog} tabIndex="-1" role="dialog">
+        <div ref={nodeRef} className={styles.dialog} tabIndex="-1" role="dialog">
           {children}
         </div>
       </CSSTransition>
 
-      <div className={verticalPad} />
+      <div className={styles.verticalPad} />
     </>
   )
 }

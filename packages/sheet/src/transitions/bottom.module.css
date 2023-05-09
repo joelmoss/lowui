@@ -1,5 +1,5 @@
 .base {
-  @mixin sheetBase;
+  @mixin sheetBase from url("../index.mixin.css");
   transform: translate(0, 100%);
 }
 

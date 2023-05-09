@@ -32,6 +32,6 @@ export const useModal = (idFromArg) => {
   return {
     id,
     isModalOpen: model.instances[id],
-    toggleModal: (isOpen) => model.toggle(id, isOpen),
+    toggleModal: (isOpen) => model.toggle(id, isOpen)
   }
 }
