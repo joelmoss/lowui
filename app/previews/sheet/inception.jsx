@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
 
-import Sheet, { SheetBody, SheetHeader, useSheet } from "@lowui/sheet"
+import Sheet, { SheetBody, SheetHeader, useSheet } from "/packages/sheet"
 
 const InceptionSheet = () => {
   const { toggleSheet } = useSheet(1)

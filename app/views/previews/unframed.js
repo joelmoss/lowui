@@ -1,4 +1,4 @@
-import init from "bundle:@proscenium/component-manager"
+import init from "@proscenium/component-manager"
 
 init({
   debug: true,

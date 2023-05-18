@@ -1,5 +1,6 @@
 import { useCallback } from "react"
-import Modal, { useModal } from "@lowui/modal"
+
+import Modal, { useModal } from "/packages/modal"
 
 import styles from "./basic.module.css"
 

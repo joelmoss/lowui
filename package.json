@@ -4,6 +4,10 @@
   "description": "Low Level React Components and Hooks",
   "type": "module",
   "main": "index.js",
+  "engines": {
+    "node": "20.0.0"
+  },
+  "packageManager": "pnpm@8.5.1",
   "scripts": {
     "test": "jest",
     "lint": "eslint packages --ext .jsx --ext .js"
@@ -25,7 +29,8 @@
   "prettier": {
     "printWidth": 100,
     "semi": false,
-    "trailingComma": "none"
+    "trailingComma": "none",
+    "arrowParens": "avoid"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -38,7 +43,9 @@
   },
   "pnpm": {
     "overrides": {
-      "react-is": "^18.2.0"
+      "react-is": "^18.2.0",
+      "prop-types": "github:joelmoss/prop-types#esm",
+      "prop-types-exact": "github:joelmoss/prop-types-exact"
     }
   },
   "devDependencies": {

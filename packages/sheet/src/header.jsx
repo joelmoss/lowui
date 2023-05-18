@@ -13,7 +13,7 @@ const Header = ({ title, isLoading, children }) => {
   return (
     <div className={styles.header}>
       {isLoading ? (
-        <div className={styles.headerLoading}>
+        <div className={[styles.loading, styles.headerLoading].join(" ")}>
           <div>
             <div />
             <div />

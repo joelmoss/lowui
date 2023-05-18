@@ -1,18 +1,12 @@
 /* eslint-disable react/prop-types */
 
-import { Suspense, useEffect, useMemo, useRef } from "react"
+import { Suspense, useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 import { CSSTransition } from "react-transition-group"
 
 import { SheetContext, useSheet } from "./hooks"
 
 import styles from "./index.module.css"
-import autoTransitions from "./transitions/auto.module.css"
-import bottomTransitions from "./transitions/bottom.module.css"
-import leftTransitions from "./transitions/left.module.css"
-import rightTransitions from "./transitions/right.module.css"
-
-const transitions = ["base", "enter", "enterActive", "enterDone", "exit", "exitActive", "exitDone"]
 
 /**
  * @param {object} props
@@ -41,40 +35,13 @@ const Sheet = ({
   const containerRef = useRef()
   const { toggleSheet, isSheetOpen } = useSheet(id)
 
-  const { base: baseStyle, ...transitionStyles } = useMemo(() => {
-    const obj = {}
-
-    const tstyles = (() => {
-      switch (openFrom) {
-        case "auto": {
-          return autoTransitions
-        }
-        case "bottom": {
-          return bottomTransitions
-        }
-        case "right": {
-          return rightTransitions
-        }
-        case "left": {
-          return leftTransitions
-        }
-      }
-    })()
-
-    for (const tstate of transitions) {
-      obj[tstate] = tstyles[tstate]
-    }
-
-    return obj
-  }, [openFrom])
-
   // Make sure changes to the `isOpen` prop toggle the sheet.
   useEffect(() => toggleSheet(isOpen), [isOpen]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Allow a click on the overlay to close the sheet.
   useEffect(() => {
     const ele = containerRef.current
-    const onOutsideClick = (event) => event.target === ele && toggleSheet(false)
+    const onOutsideClick = event => event.target === ele && toggleSheet(false)
     isSheetOpen && ele.addEventListener("click", onOutsideClick)
 
     return () => ele?.removeEventListener("click", onOutsideClick)
@@ -92,13 +59,20 @@ const Sheet = ({
           onExited={() => {
             onExit?.()
           }}
-          classNames={{ ...transitionStyles }}
+          classNames={{
+            enter: styles.enter,
+            exitActive: styles.exitActive,
+            exitDone: styles.exitDone,
+            enterActive: styles[`${openFrom}EnterActive`],
+            enterDone: styles[`${openFrom}EnterDone`],
+            exit: styles[`${openFrom}Exit`]
+          }}
           timeout={500}
         >
           <div className={styles.container} ref={containerRef}>
             {isLoading ? <div className={styles.disabledLoading} /> : null}
             {isDisabled ? <div className={styles.disabled} /> : null}
-            <section className={baseStyle}>
+            <section className={[styles.base, styles[`${openFrom}Base`]].join(" ")}>
               <Suspense
                 fallback={
                   <div className={styles.loading}>

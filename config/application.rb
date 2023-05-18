@@ -32,8 +32,6 @@ module LowUI
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.proscenium.include_paths += ['app/components', 'app/previews', 'packages']
-    config.proscenium.css_mixin_paths << Rails.root.join('packages')
-    config.proscenium.css_mixin_paths << Rails.root.join('lib', 'mixins')
 
     # Don't generate system test files.
     config.generators.system_tests = nil
