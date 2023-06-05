@@ -6,6 +6,7 @@
   "source": "index.js",
   "exports": {
     ".": {
+      "proscenium": "./index.js",
       "development": "./index.js",
       "default": "./dist/index.js"
     },

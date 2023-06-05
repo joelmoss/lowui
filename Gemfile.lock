@@ -1,14 +1,14 @@
 PATH
   remote: /Users/joelmoss/dev/phlexible
   specs:
-    phlexible (0.4.1)
+    phlexible (0.4.2)
       phlex (~> 1.8.1)
       phlex-rails (~> 1.0.0)
 
 PATH
   remote: /Users/joelmoss/dev/proscenium
   specs:
-    proscenium (0.6.0)
+    proscenium (0.7.0)
       activesupport (>= 6.1.0, < 8.0)
       ffi (~> 1.15.5)
       nokogiri (~> 1.13)
