@@ -4,6 +4,7 @@
   "description": "",
   "type": "module",
   "source": "index.js",
+  "private": false,
   "exports": {
     ".": {
       "proscenium": "./index.js",

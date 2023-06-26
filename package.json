@@ -2,10 +2,9 @@
   "name": "lowui",
   "version": "0.1.0",
   "description": "Low Level React Components and Hooks",
-  "type": "module",
-  "main": "index.js",
+  "private": true,
   "engines": {
-    "node": "20.0.0"
+    "node": "20.2.0"
   },
   "packageManager": "pnpm@8.5.1",
   "scripts": {
