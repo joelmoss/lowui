@@ -8,10 +8,9 @@ PATH
 PATH
   remote: /Users/joelmoss/dev/proscenium
   specs:
-    proscenium (0.9.1)
+    proscenium (0.10.0)
       activesupport (>= 6.1.0, < 8.0)
       ffi (~> 1.15.5)
-      nokogiri (~> 1.13)
       oj (~> 3.13)
       railties (>= 6.1.0, < 8.0)
 
@@ -127,7 +126,7 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.0-arm64-darwin)
       racc (~> 1.4)
-    oj (3.15.0)
+    oj (3.16.1)
     phlex (1.8.1)
       concurrent-ruby (~> 1.2)
       erb (>= 4)

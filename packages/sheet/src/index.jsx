@@ -9,6 +9,10 @@ import { SheetContext, useSheet } from "./hooks"
 import styles from "./index.module.css"
 
 /**
+ * A sheet is a modal that slides in from the bottom of the screen, or from the left or right. It
+ * can be used to display a menu, or a form, or any other content that needs to be displayed in a
+ * modal that should cover most of the screen.
+ *
  * @param {object} props
  * @param {string} props.id - Unique sheet identifier.
  * @param {any} props.children
@@ -22,6 +26,7 @@ import styles from "./index.module.css"
  * @param {'auto' | 'bottom' | 'left' | 'right'} [props.openFrom='auto'] - The direction that the
  *   sheet will animate from. The 'auto' option will open the sheet from the right, and from the
  *   bottom on mobile. Default is `'auto'`
+ * @returns {JSX.Element}
  */
 const Sheet = ({
   id,
