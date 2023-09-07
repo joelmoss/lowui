@@ -15,7 +15,7 @@ import styles from "./index.module.css"
  *
  * @param {object} props
  * @param {string} props.id - Unique sheet identifier.
- * @param {any} props.children
+ * @param {(React.ReactNode|function)} props.children
  * @param {boolean} [props.isOpen=false] Default is `false`
  * @param {boolean} [props.isDisabled=false] - When true, will disable and block the UI of the
  *   entire sheet. Default is `false`
@@ -88,7 +88,7 @@ const Sheet = ({
                   </div>
                 }
               >
-                {children}
+                {typeof children === 'function' ? children() : children}
               </Suspense>
             </section>
           </div>
