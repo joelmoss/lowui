@@ -4,16 +4,26 @@ module Views
   class Previews::Unframed < Layouts::Application
     def template
       super do
-        div class: 'componentManagedByProscenium', data: { component: component_data } do
-          div { 'loading...' }
+        div do
+          Proscenium::Importer.import resolve: '@proscenium/react-manager/index.jsx'
+          Proscenium::Importer.import react_component_path, lazy: true
+
+          div data: { proscenium_component_path: react_component_path,
+                      proscenium_component_props: react_component_props }
         end
       end
     end
 
     private
 
-    def component_data
-      { path: "/app/previews/#{helpers.params[:path]}" }.to_json
+    def react_component_path
+      @react_component_path ||= "/app/previews/#{path}.jsx"
+    end
+
+    def react_component_props = {}.to_json
+
+    def path
+      @path ||= helpers.params[:path]
     end
   end
 end

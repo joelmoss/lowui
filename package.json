@@ -58,7 +58,6 @@
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-react": "^7.22.15",
     "@developwithstyle/postcss-custom-media": "^8.0.2",
-    "@proscenium/component-manager": "^0.4.2",
     "@rails/actioncable": "^7.0.7-2",
     "@testing-library/dom": "^9.3.1",
     "@testing-library/jest-dom": "^6.1.3",

@@ -25,9 +25,6 @@ importers:
       '@developwithstyle/postcss-custom-media':
         specifier: ^8.0.2
         version: 8.0.2(postcss@8.4.29)
-      '@proscenium/component-manager':
-        specifier: ^0.4.2
-        version: 0.4.2(react-dom@18.2.0)(react@18.2.0)
       '@rails/actioncable':
         specifier: ^7.0.7-2
         version: 7.0.7-2
@@ -1947,16 +1944,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@proscenium/component-manager@0.4.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-hpDLWnHlAKpIFEBQR5ZQ9sdAneitlbjW1hzhJnuB61jnYqo/Txcq1vMZZHeJetwjreHS0cckX+TnewDES7hXUA==}
-    peerDependencies:
-      react: '>=18'
-      react-dom: '>=18'
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: true
 
   /@rails/actioncable@7.0.7-2:
     resolution: {integrity: sha512-7irihOFG//9Z4kBuiwH+VqSfiCdOLcuhC0/y7QcxOC9R08QE5Hq7N+ex2o3SkqiszbmMh7tlj88V+y+Kt/TPmA==}
@@ -5387,7 +5374,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
     dev: true
 
   /jsx-ast-utils@3.3.3:

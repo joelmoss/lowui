@@ -2,7 +2,6 @@
 
 module Components
   class Header::Component < Proscenium::Phlex
-    include Proscenium::Phlex::ResolveCssModules
     include Phlex::Rails::Helpers::Routes
 
     def template
