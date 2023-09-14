@@ -2,10 +2,8 @@
   background-color: var(--lowui-modal-backgroundColor);
   transform: scale(0.9);
   opacity: 0;
-  box-align: stretch;
   align-items: stretch;
   display: flex;
-  box-orient: vertical;
   flex-direction: column;
   position: relative;
   overflow: auto;
@@ -66,7 +64,9 @@
     transform: scale(1);
   }
 
-  transition: opacity 300ms, transform 300ms;
+  transition:
+    opacity 300ms,
+    transform 300ms;
 }
 
 .exit {
@@ -76,7 +76,9 @@
 .exitActive {
   opacity: 0;
   transform: translateY(10%);
-  transition: opacity 300ms, transform 200ms;
+  transition:
+    opacity 300ms,
+    transform 200ms;
 
   @media (--gt-largephone) {
     transform: translateY(-10%);
